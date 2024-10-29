@@ -14,8 +14,9 @@
     <div>
       <a href="stores.php">
         <img src="images/marker.svg" alt="" />
-        <span>Find a store</span>
+        <span>Find a store here</span>
       </a>
     </div>
   </div>
 </div>
+
