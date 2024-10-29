@@ -37,15 +37,6 @@ h1 {
 
 <h1>Sales Orders Today</h1>
 
-<div>
-    Logged in as: 
-    <span class="login-name">
-        <?php echo $user_name; // Display the user name ?>
-    </span>
-
-    <p><span id="liveDateTime"></span></p>
-</div>
-
 <div class="col-md-12 mb-5">
     <div class="card">
         <div class="card-header">
