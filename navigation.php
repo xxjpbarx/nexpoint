@@ -11,18 +11,21 @@
     </div>
 
     <ul class="navbar-nav-left">
+      <li><a href="main.php">Home</a></li>
       <li><a href="menu.php">Menu</a></li>
       <li><a href="listoforder.php">Order Now</a></li>
       <li><a href="contact.php">Contact</a></li>
+      <li><a href="stores.php" >Store</a></li>
+
     </ul>
 
     <ul class="navbar-nav-right">
-      <li>
+      <!-- <li>
         <a href="stores.php">
           <img src="images/marker.svg" alt="" />
           <span>Find a store</span>
         </a>
-      </li>
+      </li> -->
       <a href="login.php">
     <button class="btn btn-dark-outline">Sign in</button>
       </a>
