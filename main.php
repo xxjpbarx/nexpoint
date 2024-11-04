@@ -179,16 +179,16 @@
     </section>
 
       <!--=============== IMAGE CAROUSEL ===============-->
-     <div class="carousel" data-flickity='{"autoPlay": "true", "cellAlign": "left"}'>
-      <div class="cell" style="background-image: url(images/c1.jpg)"></div>
-      <div class="cell" style="background-image: url(images/c2.jpg)"></div>
-      <div class="cell" style="background-image: url(images/c3.jpg)"></div>
-      <div class="cell" style="background-image: url(images/c4.jpg)"></div>
-      <div class="cell" style="background-image: url(images/c5.jpg)"></div>
-      <div class="cell" style="background-image: url(images/c6.jpg)"></div>
-      <div class="cell" style="background-image: url(images/c7.jpg)"></div>
-      <div class="cell" style="background-image: url(images/c8.jpg)"></div>
-    </div>
+      <div class="main-carousel" data-flickity='{"autoPlay": true, "cellAlign": "left", "wrapAround": true, "freeScroll": true}'>
+  <div class="cell" style="background-image: url(images/c1.jpg)"></div>
+  <div class="cell" style="background-image: url(images/c2.jpg)"></div>
+  <div class="cell" style="background-image: url(images/c3.jpg)"></div>
+  <div class="cell" style="background-image: url(images/c4.jpg)"></div>
+  <div class="cell" style="background-image: url(images/c5.jpg)"></div>
+  <div class="cell" style="background-image: url(images/c6.jpg)"></div>
+  <div class="cell" style="background-image: url(images/c7.jpg)"></div>
+  <div class="cell" style="background-image: url(images/c8.jpg)"></div>
+</div>
 
      <!--=============== ALL ABOUT US ===============-->
 
@@ -281,17 +281,20 @@
 
     <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 
+ 
    <script>
-        $('.main-carousel').flickity({
-            cellAlign: 'left',
-            wrapAround: true,
-            freeScroll: true
-          });
-          $(document).ready(function() {
-            $('#menu-btn').on('click', function() {
-                $('#menu').toggleClass('hidden'); // Toggle visibility of the mobile menu
-            });
-        });
+  $(document).ready(function() {
+      $('.main-carousel').flickity({
+          cellAlign: 'left',
+          wrapAround: true,
+          freeScroll: true,
+          autoPlay: true // automatically scrolls through cells
+      });
+
+      $('#menu-btn').on('click', function() {
+          $('#menu').toggleClass('hidden'); // Toggle visibility of the mobile menu
+      });
+  });
    </script>
     
   </body>
