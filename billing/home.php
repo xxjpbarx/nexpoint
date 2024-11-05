@@ -99,37 +99,44 @@ endif;
                     <b>Products</b>
                 </div>
                 <div class="card-body row" id="prod-list">
-                    <div class="col-md-12">
-                        <!-- Category list -->
-                        <div class="row justify-content-start align-items-center" id="cat-list">
-                            <div class="mx-3 cat-item" data-id="all">
-                                <button class="btn btn-primary"><b class="text-white">All</b></button>
-                            </div>
-                            <?php 
-                            $qry = $conn->query("SELECT * FROM categories ORDER BY name ASC");
-                            while($row=$qry->fetch_assoc()):
-                            ?>
-                            <div class="mx-3 cat-item" data-id="<?php echo $row['id'] ?>">
-                                <button class="btn btn-primary"><?php echo ucwords($row['name']) ?></button>
-                            </div>
-                            <?php endwhile; ?>
-                        </div>
-                        <hr>
-                        <div class="row">
-                            <?php
-                            $prod = $conn->query("SELECT * FROM products WHERE status = 1 ORDER BY name ASC");
-                            while($row=$prod->fetch_assoc()):
-                            ?>
-                            <div class="col-md-2 mb-2">
-                                <div class="prod-item text-center" data-json='<?php echo json_encode($row) ?>' data-category-id="<?php echo $row['category_id'] ?>">
-                                    <img src="../assets/uploads/element1.jpg" class="rounded" width="100%">
-                                    <span><?php echo $row['name'] ?></span>
-                                </div>
-                            </div>
-                            <?php endwhile; ?>
-                        </div>
-                    </div>
-                </div>
+    <div class="col-md-12">
+        <!-- Category list -->
+        <div class="row justify-content-start align-items-center" id="cat-list">
+            <div class="mx-3 cat-item" data-id="all">
+                <button class="btn btn-primary"><b class="text-white">All</b></button>
+            </div>
+            <?php 
+            $qry = $conn->query("SELECT * FROM categories ORDER BY name ASC");
+            while($row = $qry->fetch_assoc()):
+            ?>
+            <div class="mx-3 cat-item" data-id="<?php echo $row['id']; ?>">
+                <button class="btn btn-primary category-filter" data-category-id="<?php echo $row['id']; ?>"><?php echo ucwords($row['name']); ?></button>
+            </div>
+            <?php endwhile; ?>
+        </div>
+        <hr>
+        <div class="row">
+        <?php
+$prod = $conn->query("SELECT * FROM products WHERE status = 1 ORDER BY name ASC");
+while($row = $prod->fetch_assoc()):
+    // Set a default placeholder image
+    $defaultImage = 'placeholder.jpg';
+
+    // Check if $row['image'] has a value and the file exists in the directory; otherwise, use the placeholder
+    $image = (!empty($row['image']) && file_exists("../assets/uploads/" . $row['image'])) ? $row['image'] : $defaultImage;
+    $imagePath = "../assets/uploads/" . $image;
+?>
+<div class="col-md-2 mb-2">
+    <div class="prod-item text-center" data-json='<?php echo json_encode($row); ?>' data-category-id="<?php echo $row['category_id']; ?>" title="<?php echo htmlspecialchars($row['description']); ?>">
+        <img src="<?php echo htmlspecialchars($imagePath); ?>" class="rounded" width="100%" onerror="this.onerror=null; this.src='../assets/uploads/<?php echo $defaultImage; ?>';">
+        <span><?php echo htmlspecialchars($row['name']); ?></span><br>
+        <span class="text-muted">₱<?php echo number_format($row['price'], 2); ?></span>
+    </div>
+</div>
+<?php endwhile; ?>
+        </div>
+    </div>
+</div>
                 <div class="card-footer">
                     <div class="row justify-content-center">
                         <div class="btn btn-primary btn-sm col-sm-3 mr-2" type="button" id="pay">Pay</div>

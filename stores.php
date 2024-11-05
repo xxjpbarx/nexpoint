@@ -40,7 +40,7 @@
   <ul>
     <li><a href="menu.php">Menu</a></li>
     <li><a href="listoforder.php">Order Now</a></li>
-    <li><a href="contact.php">Contact</a></li>
+    <li><a href="about.php">About</a></li>
   </ul>
   <div class="mobile-menu-bottom">
     <button class="btn btn-dark-outline">Sign in</button>

@@ -22,6 +22,10 @@ if ($category_result->num_rows > 0) {
     }
 }
 
+// Fetch categories from the database
+$query = "SELECT * FROM categories";
+$result = mysqli_query($conn, $query);
+
 // Handle adding a product
 if (isset($_POST['save'])) {
     // Retrieve form data
@@ -142,6 +146,19 @@ $product_result = $conn->query($product_sql);
 <body>
     <div class="container">
         <h1 class="my-4">Product List</h1>
+
+                <!-- Category Filter Dropdown -->
+                <form method="GET" class="mb-3">
+            <label for="category-filter" class="form-label">Filter by Category:</label>
+            <select id="category-filter" name="category" class="form-select" onchange="this.form.submit()">
+                <option value="">All Categories</option>
+                <?php foreach ($categories as $category): ?>
+                    <option value="<?php echo $category['id']; ?>" <?php echo $selected_category == $category['id'] ? 'selected' : ''; ?>>
+                        <?php echo $category['name']; ?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
+        </form>
         <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#addProductModal">Add Product</button>
 
         <table class="table table-bordered">
@@ -323,3 +340,4 @@ $product_result = $conn->query($product_sql);
 <?php
 $conn->close();
 ?>
+<script>$('table').dataTable()</script>

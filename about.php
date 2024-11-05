@@ -116,7 +116,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <ul>
             <li><a href="menu.php">Menu</a></li>
             <li><a href="listoforder.php">Order Now</a></li>
-            <li><a href="contact.php">Contact</a></li>
+            <li><a href="about.php">Contact</a></li>
         </ul>
         <div class="mobile-menu-bottom">
             <button class="btn btn-dark-outline">Sign in</button>
@@ -153,7 +153,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Send an AJAX request
         var xhr = new XMLHttpRequest();
-        xhr.open("POST", "contact.php", true);
+        xhr.open("POST", "about.php", true);
 xhr.onload = function() {
     console.log("Response: " + xhr.responseText);  // Log the response for debugging
 

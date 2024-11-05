@@ -151,7 +151,7 @@
   <ul>
     <li><a href="menu.php">Menu</a></li>
     <li><a href="listoforder.php">Order Now</a></li>
-    <li><a href="contact.php">Contact</a></li>
+    <li><a href="about.php">About</a></li>
   </ul>
   <div class="mobile-menu-bottom">
     <button class="btn btn-dark-outline">Sign in</button>
@@ -179,7 +179,7 @@
     </section>
 
       <!--=============== IMAGE CAROUSEL ===============-->
-      <div class="main-carousel" data-flickity='{"autoPlay": true, "cellAlign": "left", "wrapAround": true, "freeScroll": true}'>
+  <div class="main-carousel" data-flickity='{"autoPlay": true, "cellAlign": "left", "wrapAround": true, "freeScroll": true}'>
   <div class="cell" style="background-image: url(images/c1.jpg)"></div>
   <div class="cell" style="background-image: url(images/c2.jpg)"></div>
   <div class="cell" style="background-image: url(images/c3.jpg)"></div>
@@ -217,7 +217,7 @@
                   <img src="images/story.jpeg" alt="">
               </div>
               <div class="col-text">
-                  <a href="contact.php" class="col-title">Contact Us</a>
+                  <a href="about.php" class="col-title">About</a>
               </div>
           </div>
       </div>
